@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://df5ht6pujmurt"]
+
+[ext_resource type="Texture2D" uid="uid://b8rj3523sy63k" path="res://scense/Door Out (78x58).png" id="1_y25ya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxly5"]
+atlas = ExtResource("1_y25ya")
+region = Rect2(546, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thri4"]
+atlas = ExtResource("1_y25ya")
+region = Rect2(234, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o68rj"]
+atlas = ExtResource("1_y25ya")
+region = Rect2(312, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y51jy"]
+atlas = ExtResource("1_y25ya")
+region = Rect2(390, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k87o8"]
+atlas = ExtResource("1_y25ya")
+region = Rect2(468, 0, 78, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhoh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxly5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thri4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o68rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y51jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k87o8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thri4"]
+size = Vector2(69, 57)
+
+[node name="CharacterBody2D2" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(196, 144)
+scale = Vector2(1.84615, 2.24138)
+sprite_frames = SubResource("SpriteFrames_dhoh7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(173.5, 149.5)
+shape = SubResource("RectangleShape2D_thri4")

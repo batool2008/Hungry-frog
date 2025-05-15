@@ -1,0 +1,138 @@
+[gd_scene load_steps=20 format=3 uid="uid://cx7uppi2tm6gi"]
+
+[ext_resource type="Texture2D" uid="uid://c2se2em2w8jg" path="res://Mushroom/Idle (32x32).png" id="1_jh6vw"]
+[ext_resource type="Script" uid="uid://duwnqagm0eke2" path="res://scense/enemy.gd" id="1_wrjwy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yu6e"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hl6y"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqmcf"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yawg4"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ba2"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vltse"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpjs4"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gj2h"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvi0f"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfqqj"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n2mm"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1xv0"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb5ih"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a57bb"]
+atlas = ExtResource("1_jh6vw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp81t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yu6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hl6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqmcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yawg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ba2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vltse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpjs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gj2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvi0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfqqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n2mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1xv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb5ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a57bb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yxjd"]
+size = Vector2(76, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1o7x"]
+size = Vector2(88, 67)
+
+[node name="Enemy" type="RigidBody2D"]
+script = ExtResource("1_wrjwy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(156.5, 200)
+scale = Vector2(3.03125, 3.125)
+sprite_frames = SubResource("SpriteFrames_dp81t")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(157, 221.5)
+shape = SubResource("RectangleShape2D_7yxjd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(157, 219.5)
+shape = SubResource("RectangleShape2D_k1o7x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

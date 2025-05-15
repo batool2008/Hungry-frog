@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04msmmi0mxbo"]
+
+[ext_resource type="Texture2D" uid="uid://gbxil35hxoww" path="res://chalenge.tres" id="1_my3yh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swtdd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_my3yh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17.5, -19.5)
+scale = Vector2(0.534091, 0.489583)
+sprite_frames = SubResource("SpriteFrames_swtdd")
+autoplay = "default"
